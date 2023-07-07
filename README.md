@@ -1,2 +1,2 @@
 # CVlearning
-Messing with openCV and pyautogui to make webcam controlled mouse
+Messing with openCV, pyautogui and mediapipe to make webcam controlled mouse
