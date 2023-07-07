@@ -40,10 +40,14 @@ while True:
             pyautogui.moveTo(screenw-curx, cury)
             px, py = curx, cury
         elif fingers[1] == 1 and fingers[2] == 1:
-            length, img, distinfo = detector.findDistance(8, 12, img)
-            if length < 35:
-                cv2.circle(img, (distinfo[4], distinfo[5]), 10, (0,255,0), cv2.FILLED)
-                pyautogui.leftClick()
+            cv2.circle(img, (x1, y1), 10, (0,255,0), cv2.FILLED)
+            cv2.circle(img, (x2, y2), 10, (0,255,0), cv2.FILLED)
+            pyautogui.leftClick()
+        #elif fingers[1] == 1 and fingers[2] == 1:
+        #    length, img, distinfo = detector.findDistance(8, 12, img)
+        #    if length < 35:
+        #        cv2.circle(img, (distinfo[4], distinfo[5]), 10, (0,255,0), cv2.FILLED)
+        #        pyautogui.leftClick()
 
     cv2.imshow('test image', img)
     cv2.waitKey(1)
