@@ -2,7 +2,6 @@ import cv2
 import mediapipe as mp
 import time
 import math
-import pyautogui
 
 class handDetector():
     def __init__(self, mode=False, maxHands=2, modelCom=1,detectionCon=0.5, trackCon=0.5):
@@ -65,11 +64,11 @@ class handDetector():
     def findDistance(self, p1, p2, img, draw=True, r=10, t=3):
         x1,y1 = self.lmlist[p1][1:]
         x2,y2 = self.lmlist[p2][1:]
-        cx,cy = (x1+x2)//2, (y1+y2)//2
+        cx,cy = (x1+x2)//2, (y1+y2)//2 # / normal division, // floor division or int division
         if draw:
-            cv2.circle(img, (x1,y1), 10, (0,0,0), cv2.FILLED)
-            cv2.circle(img, (x2,y2), 10, (0,0,0), cv2.FILLED)
-            cv2.line(img, (x1,y1), (x2,y2), (0,0,0), 3)
+            cv2.circle(img, (x1,y1), 10, (0,255,0), cv2.FILLED)
+            cv2.circle(img, (x2,y2), 10, (0,255,0), cv2.FILLED)
+            cv2.line(img, (x1,y1), (x2,y2), (255,255,255), 3)
             cv2.circle(img, (cx,cy), 10, (0,0,255), cv2.FILLED)
         length = math.hypot(x2-x1, y2-y1)
         return length, img, [x1, y1, x2, y2, cx, cy]
